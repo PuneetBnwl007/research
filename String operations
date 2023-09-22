@@ -1,0 +1,43 @@
+# Function to reverse a string
+def reverse_string(input_string):
+    # Use string slicing to reverse the string
+    reversed_string = input_string[::-1]
+    return reversed_string
+
+# Main function
+def main():
+    # Get a string from the user
+    input_string = input("Enter a string: ")
+    
+    # Call the reverse_string function and display the result
+    reversed_str = reverse_string(input_string)
+    print(f"Reversed string: {reversed_str}")
+
+# Entry point of the program
+if __name__ == "__main__":
+    main()
+
+
+# Function to remove duplicate strings from a list
+def remove_duplicates(input_list):
+    unique_set = set()  # Create an empty set to store unique strings
+    result_list = []    # Create an empty list to store the result
+
+    for item in input_list:
+        if item not in unique_set:
+            # If the string is not in the set, add it to the result list and the set
+            result_list.append(item)
+            unique_set.add(item)
+
+    return result_list
+
+# Example usage:
+if __name__ == "__main__":
+    input_list = ["apple", "banana", "cherry", "apple", "date", "banana", "grape"]
+
+    print("Original List:", input_list)
+
+    # Remove duplicate strings
+    unique_list = remove_duplicates(input_list)
+
+    print("List with Duplicates Removed:", unique_list)
