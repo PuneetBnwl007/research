@@ -1,0 +1,43 @@
+# Fibonacci Sequence Calculator in Python
+
+# Function to calculate the Fibonacci sequence
+def fibonacci(n):
+    # Check if the input is non-positive
+    if n <= 0:
+        return "Please enter a positive integer."
+    # Base case for n = 1
+    elif n == 1:
+        return [0]
+    # Base case for n = 2
+    elif n == 2:
+        return [0, 1]
+    else:
+        # Initialize the sequence with the first two terms
+        sequence = [0, 1]
+        # Continue adding terms until reaching the specified number of terms (n)
+        while len(sequence) < n:
+            # Calculate the next term by adding the last two terms
+            next_term = sequence[-1] + sequence[-2]
+            # Append the next term to the sequence
+            sequence.append(next_term)
+        # Return the complete Fibonacci sequence
+        return sequence
+
+# Main function
+def main():
+    print("Fibonacci Sequence Calculator")
+    try:
+        # Get the number of terms from the user
+        n = int(input("Enter the number of terms in the sequence: "))
+        # Calculate the Fibonacci sequence
+        sequence = fibonacci(n)
+        print("Fibonacci Sequence:")
+        # Display the sequence
+        print(sequence)
+    except ValueError:
+        # Handle invalid input
+        print("Invalid input. Please enter a positive integer.")
+
+# Entry point of the program
+if __name__ == "__main__":
+    main()
