@@ -41,3 +41,20 @@ if __name__ == "__main__":
     unique_list = remove_duplicates(input_list)
 
     print("List with Duplicates Removed:", unique_list)
+
+# Function to check if a string is a palindrome
+def is_palindrome(input_string):
+    # Remove spaces and convert the string to lowercase
+    cleaned_string = input_string.replace(" ", "").lower()
+    
+    # Compare the string with its reverse
+    return cleaned_string == cleaned_string[::-1]
+
+# Example usage:
+if __name__ == "__main__":
+    input_string = input("Enter a string: ")
+    
+    if is_palindrome(input_string):
+        print(f"{input_string} is a palindrome.")
+    else:
+        print(f"{input_string} is not a palindrome.")
