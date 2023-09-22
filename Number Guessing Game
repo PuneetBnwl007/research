@@ -1,0 +1,27 @@
+# Number Guessing Game in Python
+
+import random
+
+def play_number_guessing_game():
+    # Generate a random number between 1 and 100 (inclusive)
+    number_to_guess = random.randint(1, 100)
+    attempts = 0  # Initialize the number of attempts to 0
+
+    print("Welcome to the Number Guessing Game!")
+    print("I've selected a number between 1 and 100. Try to guess it.")
+
+    while True:
+        guess = int(input("Your guess: "))  # Get the player's guess as an integer
+        attempts += 1  # Increment the attempts count
+
+        if guess < number_to_guess:
+            print("Try a higher number.")  # Provide a hint to guess higher
+        elif guess > number_to_guess:
+            print("Try a lower number.")  # Provide a hint to guess lower
+        else:
+            # If the guess matches the random number, the player wins
+            print(f"Congratulations! You guessed the number {number_to_guess} in {attempts} attempts.")
+            break
+
+if __name__ == "__main__":
+    play_number_guessing_game()
