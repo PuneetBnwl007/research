@@ -1,0 +1,23 @@
+#This program allows users to create and manage a simple to-do list.
+to_do_list = []
+
+while True:
+    print("To-Do List:")
+    for i, task in enumerate(to_do_list, 1):
+        print(f"{i}. {task}")
+
+    choice = input("Enter 'A' to add a task, 'D' to delete a task, or 'Q' to quit: ").upper()
+
+    if choice == "A":
+        task = input("Enter a new task: ")
+        to_do_list.append(task)
+    elif choice == "D":
+        task_index = int(input("Enter the task number to delete: ")) - 1
+        if 0 <= task_index < len(to_do_list):
+            del to_do_list[task_index]
+        else:
+            print("Invalid task number.")
+    elif choice == "Q":
+        break
+    else:
+        print("Invalid choice. Please enter A, D, or Q.")
