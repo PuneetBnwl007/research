@@ -1,0 +1,48 @@
+# Bubble Sort Algorithm in Python
+
+def bubble_sort(arr):
+    n = len(arr)
+
+    # Traverse through all elements in the list
+    for i in range(n):
+        # Flag to optimize the algorithm by checking if any swaps are made
+        swapped = False
+
+        # Last i elements are already in place, so we don't need to compare them again
+        for j in range(0, n-i-1):
+            # If the element found is greater than the next element, swap them
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]  # Swap the elements
+                swapped = True
+
+        # If no two elements were swapped in the inner loop, the list is already sorted
+        if not swapped:
+            break
+
+# Function to take user input for a list of numbers
+def get_user_input():
+    input_str = input("Enter a list of numbers separated by spaces: ")
+    input_list = input_str.split()  # Split the input string into a list of strings
+    numbers = []
+
+    try:
+        for num_str in input_list:
+            num = int(num_str)
+            numbers.append(num)  # Convert the strings to integers and add them to the list
+        return numbers
+    except ValueError:
+        print("Invalid input. Please enter a list of numbers separated by spaces.")
+        return None
+
+# Example usage:
+if __name__ == "__main__":
+    # Get user input for a list of numbers
+    numbers = get_user_input()
+    
+    if numbers:
+        print("Original List:", numbers)
+
+        # Sort the list using Bubble Sort
+        bubble_sort(numbers)
+
+        print("Sorted List (Ascending):", numbers)
